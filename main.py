@@ -12,7 +12,7 @@ from random import randint
 from functools import wraps
 import bleach
 import os
-from dotenv import load_dotenv  # pip install python-dotenv
+from dotenv import load_dotenv
 
 
 def strip_invalid_html(content):
