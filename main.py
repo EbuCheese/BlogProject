@@ -11,6 +11,9 @@ from flask_gravatar import Gravatar
 from random import randint
 from functools import wraps
 import bleach
+import os
+from dotenv import load_dotenv  # pip install python-dotenv
+
 
 def strip_invalid_html(content):
     allowed_tags = ['a', 'abbr', 'acronym', 'address', 'b', 'br', 'div', 'dl', 'dt',
@@ -33,8 +36,8 @@ def strip_invalid_html(content):
 
 
 app = Flask(__name__)
-
-app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
+load_dotenv("C:/Users/Ebu/Downloads/BlogWithUsers/.venv/.env")
+app.config['SECRET_KEY'] = os.getenv("SecretKey")
 ckeditor = CKEditor(app)
 Bootstrap(app)
 
