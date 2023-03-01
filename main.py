@@ -126,7 +126,7 @@ def register():
             salt_length = randint(16, 32)
             new_user = User(
                 email=request.form["email"] ,
-                password=generate_password_hash(request.form["password"], method='pbkdf2:sha3_512:100000', salt_length=salt_length),
+                password=generate_password_hash(request.form["password"], method='pbkdf2:sha256', salt_length=8),
                 name=request.form["name"]
             )
             db.session.add(new_user)
